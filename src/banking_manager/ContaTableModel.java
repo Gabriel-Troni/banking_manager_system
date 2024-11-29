@@ -70,31 +70,7 @@ public class ContaTableModel extends AbstractTableModel{
     public Conta getValueAt(int rowIndex, int columnIndex, double valor) {
         Conta customer = listaConta.get(rowIndex);
         return customer;
-        /*
-        switch (columnIndex) {
-            case 0: return customer.deposita(valor);
-            case 1: return customer.saca(valor);
-            default : return null;
-        }*/
     }
-
-/*
-    @Override;
-    public void setValueAt(Object value, int row, int col) {
-        Cliente customer = lista.get(row);
-        switch (col) {
-            case 0:
-                customer.setNome((String) value);
-                break;
-            case 1:
-                customer.setSobrenome((String) value);
-                break;
-
-            default:
-        }
-        this.fireTableCellUpdated(row, col);
-    }
-*/
     public void setContas(List<Conta> list){
         this.listaConta = list;
         this.fireTableDataChanged();
