@@ -1,20 +1,12 @@
 package banking_manager;
 
-import banking_manager.model.ContaInvestimento;
 import banking_manager.model.Conta;
-import banking_manager.model.ContaCorrente;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
-import banking_manager.model.Cliente;
 
 public class ContaTableModel extends AbstractTableModel{
     private String[] colunas=new String[]{"CPF", "Numero"};
-
-    // private List<Cliente> lista =new ArrayList();
-    //private List<ContaCorrente> listaConta1=new ArrayList();
-    //private List<ContaInvestimento> listaConta2=new ArrayList();
     private List<Conta> listaConta = new ArrayList();
     
     public ContaTableModel(List<Conta> lista){
@@ -43,9 +35,6 @@ public class ContaTableModel extends AbstractTableModel{
     @Override
     public boolean isCellEditable(int row, int column) {
         return false;
-        /*if(column==0)
-            return true;
-        return false;*/
     }
 
     @Override
@@ -54,8 +43,8 @@ public class ContaTableModel extends AbstractTableModel{
         
         
         switch (columnIndex) {
-            case 0: return customer.getDono().getCpf();//if column 1 (name)
-            case 1: return customer.getNumero();//if column 2 (birthday)
+            case 0: return customer.getDono().getCpf();
+            case 1: return customer.getNumero();
             case 2: return customer.getSaldo();
             case 3: customer.remunera();
 
@@ -78,7 +67,6 @@ public class ContaTableModel extends AbstractTableModel{
 
     public void adicionaListaConta(Conta conta) {
         this.listaConta.add(conta);
-        //this.fireTableDataChanged();
-        this.fireTableRowsInserted(listaConta.size()-1,listaConta.size()-1);//update JTable
+        this.fireTableRowsInserted(listaConta.size()-1,listaConta.size()-1);
     }
 }

@@ -2,7 +2,6 @@ package banking_manager;
 
 import banking_manager.model.ContaInvestimento;
 import banking_manager.model.ContaCorrente;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;

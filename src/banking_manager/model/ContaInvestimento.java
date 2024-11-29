@@ -1,8 +1,6 @@
 package banking_manager.model;
 
-import banking_manager.model.ContaI;
-
-public class ContaInvestimento extends Conta implements ContaI {
+public class ContaInvestimento extends Conta {
     
     private double depositoMinimo;
 

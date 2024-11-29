@@ -1,8 +1,6 @@
 package banking_manager.model;
 
-import banking_manager.model.ContaI;
-
-public class ContaCorrente extends Conta implements ContaI{
+public class ContaCorrente extends Conta{
     
     public double limite;
     public long numeroConta;

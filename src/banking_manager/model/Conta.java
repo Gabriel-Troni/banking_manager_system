@@ -1,7 +1,5 @@
 package banking_manager.model;
 
-import banking_manager.model.ContaI;
-
 public class Conta implements ContaI {
     protected double depositoInicial;
     protected double saldo;

@@ -1,14 +1,9 @@
 package banking_manager.controller;
 
 import java.util.List;
-import javax.swing.JOptionPane;
 import banking_manager.model.Cliente;
 import banking_manager.view.ViewBanco;
 import banking_manager.model.dao.ClienteDao;
-import banking_manager.model.Conta;
-import banking_manager.model.ContaCorrente;
-import banking_manager.model.ContaInvestimento;
-import banking_manager.model.dao.ContaDao;
 
 public class ClienteController {
     private ViewBanco view;

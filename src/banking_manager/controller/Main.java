@@ -1,9 +1,7 @@
 package banking_manager.controller;
-import banking_manager.controller.ClienteController;
 import banking_manager.model.dao.ClienteDao;
 import banking_manager.model.dao.ContaDao;
 import banking_manager.view.ViewBanco;
-import banking_manager.controller.ContaController;
 
 public class Main {
         public static void main(String args[]){

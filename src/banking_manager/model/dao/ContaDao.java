@@ -1,6 +1,5 @@
 package banking_manager.model.dao;
 
-import banking_manager.model.dao.ClienteDao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -30,7 +29,6 @@ public class ContaDao {
     public Connection getConnection() {
         try {
             return DriverManager.getConnection("jdbc:mysql://localhost/SISTEMA_BANCARIO", "root", "171668");
-//            return DriverManager.getConnection("jdbc:mysql://localhost/lpooii", "root", "root");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
