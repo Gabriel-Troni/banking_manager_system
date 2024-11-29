@@ -15,9 +15,11 @@ public class ClienteTableModel extends AbstractTableModel{
     private List<Cliente> lista=new ArrayList();
     private List<ContaCorrente> listaConta1=new ArrayList();
     private List<ContaInvestimento> listaConta2=new ArrayList();
+    private List<Cliente> listaCompleta = new ArrayList<>(); // auxiliar
     
     public ClienteTableModel(List<Cliente> lista){
         this.lista=lista;
+
     }
 
     public ClienteTableModel(){
@@ -106,24 +108,24 @@ public class ClienteTableModel extends AbstractTableModel{
         ClienteController clienteController = new ClienteController();
         clienteController.deleteCliente(cliente);
 
-        this.lista.remove(linha); 
+        this.lista.remove(linha);
+        this.listaCompleta.remove(linha);
+        
         this.fireTableRowsDeleted(linha,linha);
       }
 
     public void adicionaContato(Cliente customer) {
         this.lista.add(customer);
-        //this.fireTableDataChanged();
+        this.listaCompleta.add(customer);
         this.fireTableRowsInserted(lista.size()-1,lista.size()-1);//update JTable
     }
     
     
-        public void adicionaConta(ContaCorrente conta) {
+    public void adicionaConta(ContaCorrente conta) {
         this.listaConta1.add(conta);
-        //this.fireTableDataChanged();
-        //this.fireTableRowsInserted(lista.size()-1,lista.size()-1);//update JTable
     }
         
-                public void adicionaConta2(ContaInvestimento conta) {
+    public void adicionaConta2(ContaInvestimento conta) {
         this.listaConta2.add(conta);
         //this.fireTableDataChanged();
         //this.fireTableRowsInserted(lista.size()-1,lista.size()-1);//update JTable
@@ -131,8 +133,8 @@ public class ClienteTableModel extends AbstractTableModel{
 
     public void setListaContatos(List<Cliente> contatos) {
         this.lista = contatos;
+        this.listaCompleta = new ArrayList<>(lista);
         this.fireTableDataChanged();
-        //this.fireTableRowsInserted(0,contatos.size()-1);//update JTable
     }
 
     public void limpaTabela() {
@@ -140,6 +142,7 @@ public class ClienteTableModel extends AbstractTableModel{
         if(indice<0)
             indice=0;
         this.lista = new ArrayList();
+        this.listaCompleta = new ArrayList<>(lista);
         this.fireTableRowsDeleted(0,indice);//update JTable
     }
 
@@ -153,5 +156,33 @@ public class ClienteTableModel extends AbstractTableModel{
             removeContato(contato);
         });
     }
+    
+    public void filtrarLista(String filtro) {
+
+        if (filtro == null || filtro.isEmpty()) {
+            this.lista = new ArrayList<>(listaCompleta);
+        } else {
+
+            this.lista = new ArrayList<>();
+            
+            for (Cliente cliente : listaCompleta) {
+
+                if (cliente.getNome().toLowerCase().contains(filtro.toLowerCase()) ||
+                        cliente.getSobrenome().toLowerCase().contains(filtro.toLowerCase()) ||
+                        cliente.getCpf().toLowerCase().contains(filtro.toLowerCase()) ||
+                        cliente.getRg().toLowerCase().contains(filtro.toLowerCase())) {
+                    this.lista.add(cliente);
+                }
+            }
+        }
+        
+        this.fireTableDataChanged();
+    }
+
+    public void limparFiltro() {
+        this.lista = new ArrayList<>(listaCompleta);
+        this.fireTableDataChanged();
+    }
+
     
 }

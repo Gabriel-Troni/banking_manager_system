@@ -27,6 +27,7 @@ public class ClienteDao {
     public Connection getConnection() {
         try {
             return DriverManager.getConnection("jdbc:mysql://localhost/SISTEMA_BANCARIO", "root", "171668");
+//            return DriverManager.getConnection("jdbc:mysql://localhost/lpooii", "root", "root");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
