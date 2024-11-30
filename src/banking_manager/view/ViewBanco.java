@@ -43,11 +43,11 @@ public class ViewBanco extends javax.swing.JFrame {
             }
         });
         
-        //TableRowSorter<ClienteTableModel> sorter = new TableRowSorter<>(modeloCliente);
-        //jTable1.setRowSorter(sorter);
+        TableRowSorter<ClienteTableModel> sorter = new TableRowSorter<>(modeloCliente);
+        jTable1.setRowSorter(sorter);
 
         // Permitir que o usuário clique nas colunas para ordenar
-        //jTable1.setAutoCreateRowSorter(true);
+        jTable1.setAutoCreateRowSorter(true);
     }
 
     /**
