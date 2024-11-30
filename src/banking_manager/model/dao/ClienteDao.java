@@ -33,7 +33,7 @@ public class ClienteDao {
 
     }
 
-    public void inserir(Cliente cliente) {
+    public void inserir(Cliente cliente) throws SQLException {
         try (
                 Connection connection = this.getConnection(); PreparedStatement stmtAdiciona = connection.prepareStatement(insert, Statement.RETURN_GENERATED_KEYS);) {
             // seta os valores
@@ -51,7 +51,7 @@ public class ClienteDao {
             long i = rs.getLong(1);
             cliente.setId(i);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new SQLException(e);
         }
     }
 
@@ -61,8 +61,6 @@ public class ClienteDao {
                 ResultSet rs = stmtLista.executeQuery();
             List<Cliente> clientes = new ArrayList();
             while (rs.next()) {
-                // criando o objeto Contato
-                //Contato contato = new Contato();
                 long id = rs.getLong("id");
                 String nome = rs.getString("nome");
                 String sobrenome = rs.getString("sobrenome");

@@ -4,6 +4,7 @@ import java.util.List;
 import banking_manager.model.Cliente;
 import banking_manager.view.ViewBanco;
 import banking_manager.model.dao.ClienteDao;
+import java.sql.SQLException;
 
 public class ClienteController {
     private ViewBanco view;
@@ -33,9 +34,6 @@ public class ClienteController {
         }
     } 
     
-    
-    
-    
     public void listarCliente(){
         try{
             List<Cliente> clientes = this.dao.getLista();
@@ -55,13 +53,12 @@ public class ClienteController {
     }
     
    
-    public void inserirCliente(Cliente cliente){
+    public void inserirCliente(Cliente cliente) throws SQLException {
         try{
             this.dao.inserir(cliente);
-            //this.listarCliente();
             view.adicionarCliente(cliente);
-        } catch(Exception ex){
-            ex.printStackTrace();
+        } catch(SQLException ex){
+            throw new SQLException(ex);
             
         }
     }

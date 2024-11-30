@@ -15,6 +15,7 @@ import banking_manager.controller.ContaController;
 import banking_manager.model.Conta;
 import java.util.Collections;
 import javax.swing.table.TableRowSorter;
+import java.sql.SQLException;
 
 public class ViewBanco extends javax.swing.JFrame {
 
@@ -42,11 +43,11 @@ public class ViewBanco extends javax.swing.JFrame {
             }
         });
         
-        TableRowSorter<ClienteTableModel> sorter = new TableRowSorter<>(modeloCliente);
-        jTable1.setRowSorter(sorter);
+        //TableRowSorter<ClienteTableModel> sorter = new TableRowSorter<>(modeloCliente);
+        //jTable1.setRowSorter(sorter);
 
         // Permitir que o usuário clique nas colunas para ordenar
-        jTable1.setAutoCreateRowSorter(true);
+        //jTable1.setAutoCreateRowSorter(true);
     }
 
     /**
@@ -665,7 +666,7 @@ public class ViewBanco extends javax.swing.JFrame {
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel13)
@@ -679,8 +680,8 @@ public class ViewBanco extends javax.swing.JFrame {
                             .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
-                            .addComponent(jScrollPane14))
+                            .addComponent(jScrollPane10)
+                            .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel7Layout.createSequentialGroup()
@@ -696,14 +697,13 @@ public class ViewBanco extends javax.swing.JFrame {
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel14)
-                            .addComponent(jButtonSacar)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel14)
+                        .addComponent(jButtonSacar))
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
+                        .addGap(1, 1, 1)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9)
                             .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -719,7 +719,7 @@ public class ViewBanco extends javax.swing.JFrame {
                     .addComponent(jLabel13)
                     .addComponent(jButtonSaldo)
                     .addComponent(jButtonRemunerar))
-                .addContainerGap(207, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         jTable4.setModel(modeloConta);
@@ -734,9 +734,8 @@ public class ViewBanco extends javax.swing.JFrame {
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
+                .addGap(0, 8, Short.MAX_VALUE)
+                .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -754,10 +753,10 @@ public class ViewBanco extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(184, 184, 184))
         );
 
         jTabbedPane1.addTab("Manipular Conta", jPanel3);
@@ -811,7 +810,7 @@ public class ViewBanco extends javax.swing.JFrame {
     }
 
     private void botaoCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCriarActionPerformed
-        //Aqui eu vou escrever o código
+
         try {
             String nome = jTextFieldNome.getText();
             String cpf = jTextFieldCPF.getText();
@@ -823,15 +822,19 @@ public class ViewBanco extends javax.swing.JFrame {
 
             Cliente cliente = new Cliente(nome, snome, cpf, rg, dsalario, endereco);
             this.controller.inserirCliente(cliente);
-            //List<Cliente> lista = new ArrayList();
-            //lista.add(cliente);
-            //this.mostrarListaClientes(lista);
-            //BancoDados.listaClientes.add(cliente);
-            //   modeloCliente.adicionaContato(cliente);
+        } catch (SQLException ex) {
+            if (ex.getSQLState() == null) {
+                JOptionPane.showMessageDialog(null, "Erro de banco de dados.\n", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+            else if (ex.getSQLState().equals("23000")) {
+                JOptionPane.showMessageDialog(null, "CPF já cadastrado.\n", "Erro", JOptionPane.ERROR_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Erro no banco de dados.\n", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Data inválida.\n", "Erro", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Dados inválidos.\n", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
             return;
-        }
     }//GEN-LAST:event_botaoCriarActionPerformed
     
     
@@ -1114,8 +1117,8 @@ public class ViewBanco extends javax.swing.JFrame {
             int linha = jTable1.getSelectedRow();
             String nome = jTable1.getValueAt(linha, 0).toString();        
             String sobrenome = jTable1.getValueAt(linha, 1).toString();
-            String rg = jTable1.getValueAt(linha, 2).toString();
-            String cpf = jTable1.getValueAt(linha, 3).toString();
+            String cpf = jTable1.getValueAt(linha, 2).toString();
+            String rg = jTable1.getValueAt(linha, 3).toString();
             String endereco = jTable1.getValueAt(linha, 4).toString();
             String salario = jTable1.getValueAt(linha, 5).toString();
             

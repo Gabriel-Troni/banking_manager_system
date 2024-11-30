@@ -3,13 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Gabriel%20Troni/Documents/Workspace/banking_manager_system/src/banking_manager/model/dao/ContaDao.java</file>
             <file>file:/C:/Users/Gabriel%20Troni/Documents/Workspace/banking_manager_system/src/banking_manager/model/Cliente.java</file>
+            <file>file:/C:/Users/Gabriel%20Troni/Documents/Workspace/banking_manager_system/src/banking_manager/ClienteTableModel.java</file>
             <file>file:/C:/Users/Gabriel%20Troni/Documents/Workspace/banking_manager_system/src/banking_manager/model/dao/ClienteDao.java</file>
-            <file>file:/C:/Users/Gabriel%20Troni/Documents/Workspace/banking_manager_system/src/banking_manager/ContaTableModel.java</file>
+            <file>file:/C:/Users/Gabriel%20Troni/Documents/Workspace/banking_manager_system/src/banking_manager/controller/ClienteController.java</file>
             <file>file:/C:/Users/Gabriel%20Troni/Documents/Workspace/banking_manager_system/src/banking_manager/model/Conta.java</file>
             <file>file:/C:/Users/Gabriel%20Troni/Documents/Workspace/banking_manager_system/src/banking_manager/view/ViewBanco.java</file>
-            <file>file:/C:/Users/Gabriel%20Troni/Documents/Workspace/banking_manager_system/src/banking_manager/model/ContaI.java</file>
         </group>
     </open-files>
 </project-private>
