@@ -13,6 +13,8 @@ import banking_manager.ContaTableModel;
 import banking_manager.controller.ClienteController;
 import banking_manager.controller.ContaController;
 import banking_manager.model.Conta;
+import java.util.Collections;
+import javax.swing.table.TableRowSorter;
 
 public class ViewBanco extends javax.swing.JFrame {
 
@@ -39,6 +41,12 @@ public class ViewBanco extends javax.swing.JFrame {
                 tabelaClientesMouseClicked(evt);
             }
         });
+        
+        TableRowSorter<ClienteTableModel> sorter = new TableRowSorter<>(modeloCliente);
+        jTable1.setRowSorter(sorter);
+
+        // Permitir que o usuário clique nas colunas para ordenar
+        jTable1.setAutoCreateRowSorter(true);
     }
 
     /**
@@ -773,7 +781,6 @@ public class ViewBanco extends javax.swing.JFrame {
     public void initView() {
         java.awt.EventQueue.invokeLater(() -> this.setVisible(true));
         this.controller.listarCliente();
-        
     }
 
     public void setController(ClienteController controller) {
@@ -786,7 +793,7 @@ public class ViewBanco extends javax.swing.JFrame {
     }
     
     public void mostrarListaClientes(List<Cliente> list) {
-       
+        Collections.sort(list);
         this.modeloCliente.setListaContatos(list);
         //this.modeloCliente.adicionaContato(x);
     }

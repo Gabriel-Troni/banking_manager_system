@@ -1,6 +1,6 @@
 package banking_manager.model;
 
-public class Cliente {
+public class Cliente implements Comparable<Cliente> {
     private long id;
     private String nome;
     private String sobrenome;
@@ -90,6 +90,8 @@ public class Cliente {
         this.endereco = endereco;
     }
 
-
-    
+    @Override
+    public int compareTo(Cliente outro) {
+        return this.nome.compareTo(outro.nome);
+    }
 }
