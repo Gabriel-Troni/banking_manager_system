@@ -1007,10 +1007,24 @@ public class ViewBanco extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSaldoActionPerformed
 
     private void jButtonRemunerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemunerarActionPerformed
-        if (jTable4.getSelectedRow() != -1) {
-            Conta conta = modeloConta.getContaRemunera(jTable4.getSelectedRow());
-            this.controller_conta.Remunerar(conta);
-            JOptionPane.showMessageDialog(null, "Remuneração Realizada!", "Remuneração", JOptionPane.INFORMATION_MESSAGE);
+        try {
+            if (jTable4.getSelectedRow() != -1) {
+                Conta conta = modeloConta.getContaRemunera(jTable4.getSelectedRow());
+                
+                try {
+                    this.controller_conta.Remunerar(conta);
+                    JOptionPane.showMessageDialog(null, "Conta remunerada com sucesso!", "Remuneração", JOptionPane.INFORMATION_MESSAGE);
+                } catch (RuntimeException ex) {
+                    JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro na Remuneração", JOptionPane.ERROR_MESSAGE);
+                }
+                
+                this.controller_conta.listarContas();
+            } else {
+                JOptionPane.showMessageDialog(null, "Selecione uma conta para remunerar!", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao remunerar conta.\n", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
         }
     }//GEN-LAST:event_jButtonRemunerarActionPerformed
 

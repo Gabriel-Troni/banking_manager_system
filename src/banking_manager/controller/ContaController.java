@@ -64,7 +64,12 @@ public class ContaController {
     }
     
     public void Remunerar(Conta conta) {
+        double saldoAnterior = conta.getSaldo();
         conta.remunera();
+        
+        if (saldoAnterior == conta.getSaldo()) {
+            throw new RuntimeException("Não foi possível remunerar: saldo não positivo");
+        }
         AtualizarSaldo(conta);
     }
     
