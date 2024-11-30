@@ -124,6 +124,7 @@ public class ContaDao {
                     conta.setSaldo(saldo);
                     conta.setLimite(limite);
                     conta.setIdConta(id);
+                    conta.setTipo(tipo);
                     
                     ClienteDao c = new ClienteDao();
                     conta.setCliente(c.getCliente(id_cliente));
@@ -136,6 +137,7 @@ public class ContaDao {
                     conta.setDepositoMinimo(deposito_minimo);
                     conta.setSaldo(saldo);
                     conta.setIdConta(id);
+                    conta.setTipo(tipo);
                     
                     ClienteDao c = new ClienteDao();
                     conta.setCliente(c.getCliente(id_cliente));

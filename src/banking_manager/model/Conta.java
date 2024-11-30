@@ -5,6 +5,7 @@ public class Conta implements ContaI {
     protected double saldo;
     protected Cliente cliente;
     protected long idConta;
+    protected String tipo;
 
     public long getIdConta() {
         return idConta;
@@ -13,7 +14,6 @@ public class Conta implements ContaI {
     public void setIdConta(long idConta) {
         this.idConta = idConta;
     }
-    protected String tipo;
 
     public Cliente getCliente() {
         return cliente;

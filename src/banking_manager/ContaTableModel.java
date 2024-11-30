@@ -6,7 +6,7 @@ import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
 public class ContaTableModel extends AbstractTableModel{
-    private String[] colunas=new String[]{"CPF", "Numero"};
+    private String[] colunas=new String[]{"Cliente", "CPF", "Número da Conta", "Tipo de Conta"};
     private List<Conta> listaConta = new ArrayList();
     
     public ContaTableModel(List<Conta> lista){
@@ -39,14 +39,16 @@ public class ContaTableModel extends AbstractTableModel{
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Conta customer = listaConta.get(rowIndex);
+        Conta conta = listaConta.get(rowIndex);
         
         
         switch (columnIndex) {
-            case 0: return customer.getDono().getCpf();
-            case 1: return customer.getNumero();
-            case 2: return customer.getSaldo();
-            case 3: customer.remunera();
+            case 0: return conta.getDono().getNome() + " " + conta.getDono().getSobrenome();
+            case 1: return conta.getDono().getCpf();
+            case 2: return conta.getNumero();
+            case 3: return conta.getTipo().equals("C") ? "Corrente" : "Investimento";
+            case 4: return conta.getSaldo();
+            case 5: conta.remunera();
 
             default : return null;
         }

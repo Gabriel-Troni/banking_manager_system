@@ -772,7 +772,7 @@ public class ViewBanco extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE))
+                .addComponent(jTabbedPane1))
         );
 
         pack();
@@ -997,7 +997,7 @@ public class ViewBanco extends javax.swing.JFrame {
 
     private void jButtonSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaldoActionPerformed
         if (jTable4.getSelectedRow() != -1) {
-            String saldo = Double.toString((double) modeloConta.getValueAt(jTable4.getSelectedRow(), 2));
+            String saldo = Double.toString((double) modeloConta.getValueAt(jTable4.getSelectedRow(), 4));
             JOptionPane.showMessageDialog(null, "R$ " + saldo, "SALDO", JOptionPane.INFORMATION_MESSAGE);
         }
 
