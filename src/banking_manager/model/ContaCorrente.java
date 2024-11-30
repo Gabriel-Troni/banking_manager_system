@@ -47,7 +47,9 @@ public class ContaCorrente extends Conta{
 
     @Override
     public void remunera() {
-       this.saldo += this.saldo*0.01;
+        if (this.saldo > 0) {
+            this.saldo += this.saldo * 0.01;
+        }
     }
 }   
     

@@ -45,7 +45,9 @@ public class ContaInvestimento extends Conta {
     
     @Override
     public void remunera() {
-       this.saldo += this.saldo*0.02;
+        if (this.saldo > 0) {
+            this.saldo += this.saldo * 0.02;
+        }
     }
 }   
     
